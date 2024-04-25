@@ -1,4 +1,6 @@
-
+import { useState } from "react"
+import { NavLink } from "react-router-dom"
+/* import axios from 'axios' */
 
 
 
@@ -7,6 +9,39 @@ import style from "./AddSupply.module.css"
 
 
 const AddSupply = () => {
+
+
+    const [categorie, setCategorie] = useState("");
+    const [nomArticle, setNomArticle] = useState("");
+    const [quantite, setQuantite] = useState("");
+
+    const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("categorie:", categorie);
+    console.log("nomArticle:", nomArticle);
+    console.log("quantite:", quantite);
+    
+
+    let infoSupply = {
+        categorie : categorie,
+        nomArticle : nomArticle,
+        quantite : quantite,
+    }
+    console.log(infoSupply);
+
+    /* axios
+        .post("http://localhost:5000/user/infoSupply", infoSupply)
+        .then((res) => {
+                console.log(res.data);
+                navigate("/login")
+        })
+        .catch((error) => {
+                console.log(error);
+        }); */
+  };
+
+
+
     return(
         <div>
             <div className={style.formulaire}>
@@ -14,10 +49,13 @@ const AddSupply = () => {
                     <h2>Supply Register</h2>
                 </section>
                 <div className={style.form}>
-                    <form action="" method="">
+                    <form onSubmit={handleSubmit}>
                         <div className={style.username__field}>
                             <label htmlFor="" id="categorie">Categorie: </label>
-                            <select required>
+                            <select required
+                            value={categorie}
+                            onChange={(e) => setCategorie(e.target.value)}
+                            >
                             <option value="" >Sélectionner une catégorie</option>
                                 <option value="Table">Table</option>
                                 <option value="Chaise">Chaise</option>
@@ -26,7 +64,10 @@ const AddSupply = () => {
                         </div>
                         <div className={style.password__field}>
                             <label htmlFor="" id="nomArticle">Nom de l'article: </label>
-                            <select required>
+                            <select required
+                            value={nomArticle}
+                            onChange={(e) => setNomArticle(e.target.value)}
+                            >
                             <option value="" >Sélectionner le nom de l'article: </option>
                                 <option value="Table1">Table rond</option>
                                 <option value="Table1">Table basse</option>
@@ -38,7 +79,10 @@ const AddSupply = () => {
                         </div>
                         <div className={style.password__field}>
                             <label htmlFor="" id="quantité">Quantité: </label>
-                            <input type="number" id="quantité" required/>
+                            <input type="number" id="quantité" required
+                            value={quantite}
+                            onChange={(e) => setQuantite(e.target.value)}
+                            />
                         </div>
                        
                         
