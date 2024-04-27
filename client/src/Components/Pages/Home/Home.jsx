@@ -12,14 +12,15 @@ const Home = () => {
             </div>
             <div className={style.section__button}>
                 <button className={style.inscription__button}>
-                    Inscription
+                    <NavLink to={"/Signup"}  className={style.navlink} >Inscription</NavLink>
                 </button>
 
                 <button className={style.connection__button}>
-                    Connection
+                <NavLink to={"/Login"}  className={style.navlink} >Connection</NavLink> 
                 </button>
             </div>
         </div>
     )
 }
 export default Home
+

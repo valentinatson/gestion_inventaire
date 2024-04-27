@@ -33,7 +33,7 @@ const AddSupply = () => {
         .post("http://localhost:5000/user/infoSupply", infoSupply)
         .then((res) => {
                 console.log(res.data);
-                navigate("/login")
+
         })
         .catch((error) => {
                 console.log(error);

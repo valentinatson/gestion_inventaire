@@ -43,7 +43,7 @@ const AddSell = () => {
         <div>
             <div className={style.formulaire}>
                 <section className={style.title}>
-                    <h2>Sell Register</h2>
+                    <h2>Ajouter une vente</h2>
                 </section>
                 <div className={style.form}>
                     <form onSubmit={handleSubmit}>

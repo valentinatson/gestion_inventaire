@@ -28,7 +28,19 @@
 .inscription__button{
     margin-right: 1.5%;
     
+    
 }
 .connection__button{
     margin-left: 1.5%;
+}
+.navlink {
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.navlink:hover {
+    color: whitesmoke;
+    text-decoration: none;
+    font-size: 22px;
 }

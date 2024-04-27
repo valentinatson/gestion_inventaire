@@ -53,15 +53,15 @@ const Signup = () => {
                             onChange={(e) => setPassword(e.target.value)}
                             />
                         </div>
-                        {/* <div className={style.passwordConfirm__field}>
+                        <div className={style.passwordConfirm__field}>
                             <label htmlFor="" id="passwordConfirm">Confirm your password: </label>
                             <input type="password" id="passwordConfirm" />
-                        </div> */}
+                        </div>
                         <div className={style.button}>
                             <button type="submit" >Submit</button>
                         </div>
                         <div className={style.navig}>
-                        {/* <h3>j'ai déjà un compte,<NavLink to={"/Login"}> me connecter</NavLink></h3> */}
+                        <h3>j'ai déjà un compte,<NavLink to={"/Login"}> me connecter</NavLink></h3>
                         </div>
                     </form>
                 </div>

@@ -61,7 +61,7 @@ const Login = () => {
                             <button type="submit" >Submit</button>
                         </div>
                         <div className={style.navig}>
-                            {/* <h3>j'ai déjà un compte,<NavLink to={"/Login"}> me connecter</NavLink></h3> */}
+                            <h3>j'ai déjà un compte,<NavLink to={"/Signup"}> m'inscrire</NavLink></h3>
                         </div>
                     </form>
                 </div>

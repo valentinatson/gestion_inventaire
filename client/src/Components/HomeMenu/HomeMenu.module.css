@@ -1,0 +1,60 @@
+/* HomeMenu.module.css */
+.container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .sideBar {
+    flex: 0 0 200px; 
+    background-color: #3985ff;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  .page {
+    flex: 1;
+    /* padding: 20px; */
+    
+  }
+  
+  .header {
+    position: fixed;
+    border-bottom: 3px solid rgb(0, 0, 0);
+    width: 100%;
+    height: 7vh;
+    font-size: 25px;
+    background-color: #fff;
+  }
+  
+  .content {
+    margin-top: 80px;
+    
+  }
+
+.page {
+    flex: 1;
+    /* padding: 20px; */
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow-y: auto; 
+  }
+  .sideBar a {
+    color: aliceblue;
+    text-decoration: none; 
+    font-size: 20px;
+  }
+  
+  
+  .sideBar a:hover {
+    color: whitesmoke;
+    font-size: 30px;
+    font-family: cursive;
+    margin-left: 15px;
+  }
+
+  .sideBar a:focus {
+    color: rgb(22, 220, 255);
+    font-size: 30px;
+    font-family: cursive;
+    margin-left: 15px;
+  }
