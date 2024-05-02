@@ -1,19 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import AddSell from '../AddSell/AddSell';
 
 const PageSell = () => {
   const [showAddForm, setShowAddForm] = useState(false);
+  const [soldItems, setSoldItems] = useState([]);
+
+  useEffect(() => {
+    fetchSoldItems();
+  }, []);
+
+  const fetchSoldItems = () => {
+    axios.get("http://localhost:5000/sell/get")
+      .then(response => {
+        setSoldItems(response.data.sells);
+      })
+      .catch(error => {
+        console.error("Error fetching sold items:", error);
+      });
+  };
 
   const handleAddSell = () => {
     setShowAddForm(!showAddForm);
   };
-
-
-  const soldItems = [
-    { name: 'Article 1', quantity: 5, unitPrice: 10, totalPrice: 50, date: '2024-04-25', sellerName: 'Lawson', category: 'Category 1' },
-    { name: 'Article 2', quantity: 3, unitPrice: 15, totalPrice: 45, date: '2024-04-24', sellerName: 'Gavi', category: 'Category 2' },
-
-  ];
 
   return (
     <div>
@@ -29,19 +38,17 @@ const PageSell = () => {
             <th>Prix total</th>
             <th>Date</th>
             <th>Nom du vendeur</th>
-            <th>Catégorie</th>
           </tr>
         </thead>
         <tbody>
           {soldItems.map((item, index) => (
             <tr key={index}>
-              <td>{item.name}</td>
+              <td>{item.name_article}</td>
               <td>{item.quantity}</td>
-              <td>{item.unitPrice}</td>
-              <td>{item.totalPrice}</td>
-              <td>{item.date}</td>
-              <td>{item.sellerName}</td>
-              <td>{item.category}</td>
+              <td>{item.unit_price}</td>
+              <td>{item.total_price}</td>
+              <td>{item.date_sell}</td>
+              <td>{item.name_user}</td>
             </tr>
           ))}
         </tbody>

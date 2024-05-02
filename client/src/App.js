@@ -9,6 +9,7 @@ import PageArticle from "./Components/Pages/PageArticle/PageArticle";
 import PageSell from "./Components/Pages/PageSell/PageSell";
 import PageSupply from "./Components/Pages/PageSupply/PageSupply";
 import PageInventaire from "./Components/Pages/PageInventaire/PageInventaire";
+import ProtectedRoutes from "./Components/protectedRoutes.js/ProtectedRoutes";
 
 import { BrowserRouter,Routes,Route } from "react-router-dom";
 
@@ -17,17 +18,21 @@ function App() {
     <BrowserRouter>
       <Routes>
         
-      <Route path="/Home" element={<Home />} />
+      <Route path="/" element={<Home />} />
       <Route path="/Signup" element={<Signup />} />
       <Route path="/Login" element={<Login />} />
 
-        <Route path="/" element={<HomeMenu />} >
-          <Route path="/PageArticle" element={<PageArticle />} />
-          <Route path="/PageSell" element={<PageSell />} />
-          <Route path="/PageSupply" element={<PageSupply />} />
-          <Route path="/PageInventaire" element={<PageInventaire />} />
+      <Route path="/ProtectedRoutes" element={<ProtectedRoutes />} >
+        <Route path="/ProtectedRoutes/" element={<HomeMenu />} >
+          <Route index element={<PageArticle />} />
+          <Route path="/ProtectedRoutes/PageSell" element={<PageSell />} />
+          <Route path="/ProtectedRoutes/PageSupply" element={<PageSupply />} />
+          <Route path="/ProtectedRoutes/PageInventaire" element={<PageInventaire />} />
           
         </Route>
+      </Route>
+
+        
 
         <Route path="/Deconnexion" element={<Home />} />
 

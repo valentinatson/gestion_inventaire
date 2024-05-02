@@ -1,45 +1,70 @@
-import { useState } from "react"
-import { NavLink } from "react-router-dom"
-/* import axios from 'axios' */
-
-
-
-import style from "./AddSell.module.css"
-
+import axios from 'axios';
+import { useEffect, useState } from "react";
+import style from "./AddSell.module.css";
 
 const AddSell = () => {
-
-    const [categorie, setCategorie] = useState("");
+    const [articles, setArticles] = useState([]);
     const [nomArticle, setNomArticle] = useState("");
     const [quantite, setQuantite] = useState("");
-
-    const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("categorie:", categorie);
-    console.log("nomArticle:", nomArticle);
-    console.log("quantite:", quantite);
     
 
-    let infoSell = {
-        categorie : categorie,
-        nomArticle : nomArticle,
-        quantite : quantite,
-    }
-    console.log(infoSell);
-
-    /* axios
-        .post("http://localhost:5000/user/infoSell", infoSell)
-        .then((res) => {
-                console.log(res.data);
-                navigate("/login")
+    useEffect(() => {
+        // articles depuis l'API
+        axios.get("http://localhost:5000/article/articleElt",{
+            headers:{ Authorization:"sell articles"}
         })
-        .catch((error) => {
+            .then((res) => {
+                setArticles(res.data.name_article);
+            })
+            .catch((error) => {
                 console.log(error);
-        }); */
-  };
+            });
 
+        
+    }, []);
 
-    return(
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log("nomArticle:", nomArticle);
+        console.log("quantite:", quantite);
+
+        let infoSell = {
+            nomArticle: nomArticle,
+            quantite: quantite,
+        };
+        console.log(infoSell);
+        
+    };
+
+    const handleAddSell = () => {
+        
+        const infoSell = {
+            nomArticle: nomArticle,
+            quantite: quantite,
+        };
+
+        axios.post("http://localhost:5000/sell/add",infoSell,{
+            headers:{authorization: `BEARER ${localStorage.getItem('token')}`}
+        })
+            .then((res) => {
+                console.log(res);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+            /* fetch(
+                method:"post",
+                headers:{
+                    "Content-Type":"application/json",
+                    authorization:{``${localStorage.getItem()}`}
+                }
+            ) */
+        
+            
+    };
+
+    
+    return (
         <div>
             <div className={style.formulaire}>
                 <section className={style.title}>
@@ -47,51 +72,38 @@ const AddSell = () => {
                 </section>
                 <div className={style.form}>
                     <form onSubmit={handleSubmit}>
-                        <div className={style.username__field}>
-                            <label htmlFor="" id="categorie">Categorie: </label>
-                            <select required
-                            value={categorie}
-                            onChange={(e) => setCategorie(e.target.value)}
+                        <div className={style.password__field}>
+                            <label htmlFor="nomArticle">Nom de l'article: </label>
+                            <select
+                                id="nomArticle"
+                                required
+                                value={nomArticle}
+                                onChange={(e) => setNomArticle(e.target.value)}
                             >
-                            <option value="" >Sélectionner une catégorie</option>
-                                <option value="Table">Table</option>
-                                <option value="Chaise">Chaise</option>
-                                <option value="Lit">Lit</option>
+                                <option value="">Sélectionner le nom de l'article: </option>
+                                {articles.map((name_article, index) => (
+                                    <option key={index} value={name_article.name_article}>{name_article.name_article}</option>
+                                ))}
                             </select>
                         </div>
                         <div className={style.password__field}>
-                            <label htmlFor="" id="nomArticle">Nom de l'article: </label>
-                            <select required
-                            value={nomArticle}
-                            onChange={(e) => setNomArticle(e.target.value)}
-                            >
-                            <option value="" >Sélectionner le nom de l'article: </option>
-                                <option value="Table1">Table rond</option>
-                                <option value="Table1">Table basse</option>
-                                <option value="Chaise1">Chaise large</option>
-                                <option value="Chaise1">Chaise basse</option>
-                                <option value="Lit1">Lit 2 place</option>
-                                <option value="Lit1">Lit 3 place</option>
-                            </select>
-                        </div>
-                        <div className={style.password__field}>
-                            <label htmlFor="" id="quantité">Quantité: </label>
-                            <input type="number" id="quantité" required
-                            value={quantite}
-                            onChange={(e) => setQuantite(e.target.value)}
+                            <label htmlFor="quantite">Quantité: </label>
+                            <input
+                                type="number"
+                                id="quantite"
+                                required
+                                value={quantite}
+                                onChange={(e) => setQuantite(e.target.value)}
                             />
                         </div>
-                       
-                        
                         <div className={style.button}>
-                            <button type="submit" >Submit</button>
+                            <button type="submit" onClick={handleAddSell}>Ajouter une vente</button>
                         </div>
-                        
                     </form>
                 </div>
-
             </div>
         </div>
-    )
-}
-export default AddSell
+    );
+};
+
+export default AddSell;

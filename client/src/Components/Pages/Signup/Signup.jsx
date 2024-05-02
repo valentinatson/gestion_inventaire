@@ -1,15 +1,23 @@
 import style from "./Signup.module.css"
 import { useState } from "react"
 import { NavLink } from "react-router-dom"
-/* import axios from 'axios' */
+import axios from 'axios'
 
 const Signup = () => {
 
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
+    const [passwordConfirm, setPasswordConfirm] = useState("");
+
 
     const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (password !== passwordConfirm) {
+        alert("Les mots de passe ne correspondent pas.");
+        return;
+    } 
+
     console.log("name:", name);
     console.log("password:", password);
 
@@ -19,20 +27,20 @@ const Signup = () => {
     }
     console.log(infoSignup);
 
-    /* axios
+    axios
         .post("http://localhost:5000/user/signup", infoSignup)
         .then((res) => {
                 console.log(res.data);
-                navigate("/login")
+                window.location.href = "./Login";
         })
         .catch((error) => {
                 console.log(error);
-        }); */
-  };
+        });
+};
 
 
     return(
-        <div>
+        <div className={style.bodies}>
             <div className={style.formulaire}>
                 <section className={style.title}>
                     <h2>Inscription</h2>
@@ -55,7 +63,10 @@ const Signup = () => {
                         </div>
                         <div className={style.passwordConfirm__field}>
                             <label htmlFor="" id="passwordConfirm">Confirm your password: </label>
-                            <input type="password" id="passwordConfirm" />
+                            <input type="password" id="passwordConfirm"
+                            value={passwordConfirm} 
+                            onChange={(e) => setPasswordConfirm(e.target.value)}
+                            />
                         </div>
                         <div className={style.button}>
                             <button type="submit" >Submit</button>
@@ -71,3 +82,4 @@ const Signup = () => {
     )
 }
 export default Signup
+

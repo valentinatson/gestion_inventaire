@@ -10,8 +10,8 @@ const PageSupply = () => {
 
   
   const soldItems = [
-    { name: 'Article 1', quantity: 5, totalPrice: 50, date: '2024-04-25', sellerName: 'Labitey', category: 'Category 1' },
-    { name: 'Article 2', quantity: 3, totalPrice: 45, date: '2024-04-24', sellerName: 'Afanvi', category: 'Category 2' },
+    { name: 'Article 1', quantity: 5, totalPrice: 50, date: '2024-04-25', sellerName: 'Labitey' },
+    { name: 'Article 2', quantity: 3, totalPrice: 45, date: '2024-04-24', sellerName: 'Afanvi' },
     
   ];
 
@@ -28,7 +28,6 @@ const PageSupply = () => {
             <th>Prix total</th>
             <th>Date</th>
             <th>Nom du vendeur</th>
-            <th>Catégorie</th>
           </tr>
         </thead>
         <tbody>
@@ -39,7 +38,6 @@ const PageSupply = () => {
               <td>{item.totalPrice}</td>
               <td>{item.date}</td>
               <td>{item.sellerName}</td>
-              <td>{item.category}</td>
             </tr>
           ))}
         </tbody>
