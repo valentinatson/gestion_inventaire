@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import style from './PageSupply.module.css';
 import AddSupply from '../AddSupply/AddSupply';
 
 const PageSupply = () => {
@@ -16,34 +17,37 @@ const PageSupply = () => {
   ];
 
   return (
-    <div>
-      <h2>Liste des approvisionnements</h2>
-      <button onClick={handleAddSupply}>{showAddForm ? 'Fermer le formulaire' : 'Ajouter un approvisionnement'}</button>
-      {showAddForm && <AddSupply />}
-      <table>
-        <thead>
-          <tr>
-            <th>Nom de l'article</th>
-            <th>Quantité</th>
-            <th>Prix total</th>
-            <th>Date</th>
-            <th>Nom du vendeur</th>
-            <th>Catégorie</th>
-          </tr>
-        </thead>
-        <tbody>
-          {soldItems.map((item, index) => (
-            <tr key={index}>
-              <td>{item.name}</td>
-              <td>{item.quantity}</td>
-              <td>{item.totalPrice}</td>
-              <td>{item.date}</td>
-              <td>{item.sellerName}</td>
-              <td>{item.category}</td>
+    <div className={style.sectionSupply}>
+      
+        <h2>Liste des approvisionnements</h2>
+        <button className={style.btn} onClick={handleAddSupply}>{showAddForm ? 'Fermer' : 'Ajouter'}</button>
+        {showAddForm && <AddSupply />}
+      
+        <table>
+          <thead>
+            <tr>
+              <th>Nom de l'article</th>
+              <th>Quantité</th>
+              <th>Prix total</th>
+              <th>Date</th>
+              <th>Nom du vendeur</th>
+              <th>Catégorie</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {soldItems.map((item, index) => (
+              <tr key={index}>
+                <td>{item.name}</td>
+                <td>{item.quantity}</td>
+                <td>{item.totalPrice}</td>
+                <td>{item.date}</td>
+                <td>{item.sellerName}</td>
+                <td>{item.category}</td>
+              </tr>
+            ))}
+            
+          </tbody>
+        </table>
     </div>
   );
 };

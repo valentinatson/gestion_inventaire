@@ -35,10 +35,10 @@ const PageArticle = () => {
 
   return (
     <div>
-      <button className={style.addButton} onClick={handleAddArticle}>Ajouter un article</button>
+      <button className={style.btn} onClick={handleAddArticle}>Ajouter</button>
       {showAddForm && <AddArticle />}
       {uniqueCategories.map(category => (
-        <div key={category}>
+        <div key={category} className={style.article}>
           <h2>{category}</h2>
           <div className={style.grid}>
             {articles
@@ -50,8 +50,8 @@ const PageArticle = () => {
                   <p>Buy Price: {article.buyPrice}</p>
                   <p>Sell Price: {article.sellPrice}</p>
                   <div className={style.buttonContainer}>
-                    <button className={style.button} onClick={() => handleEditArticle(index)}>Modifier</button>
-                    <button className={style.button}>Supprimer</button>
+                    <button className={style.updateBtn} onClick={() => handleEditArticle(index)}>Modifier</button>
+                    <button className={style.deleteBtn}>Supprimer</button>
                   </div>
                   {showEditForms[index] && <AddArticle />}
                 </div>

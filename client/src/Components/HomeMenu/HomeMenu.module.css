@@ -1,31 +1,109 @@
 /* HomeMenu.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  --primaryColor: rgba(64, 123, 255, 1);
+  --secondaryColor: rgba(209, 228, 255, 1);
+  --shadowColor: rgba(213, 213, 213, 1);
+  --bgColor: rgba(240, 248, 255, 1);
+  --tertiaryColor: #40daff;
+  --updateColor: #5be84a;
+  --deleteColor: #ff407b;
+}
 .container {
     display: flex;
+    font-family: 'poppins';
     height: 100vh;
+    background-color: white;
   }
+
+  /* Header */
   
-  .sideBar {
+.sideBar {
     flex: 0 0 200px; 
-    background-color: #3985ff;
-    color: #fff;
-    padding: 20px;
+    background-color: var(--secondaryColor);
+    padding: 0;
+    height: 100vh;
+    width: 15%;
   }
-  
+  .logo__nom {
+    padding-top: 0.5rem;
+    padding-left: 2rem;
+    height: 10vh;
+  }
+  .linkSection {
+    display: flex;
+    padding: 0;
+    height: 85vh;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  ul {
+    padding: 0;
+    margin: 1rem 0;
+  }
+
+  ul li {
+    list-style-type: none;
+    padding: 1rem 0;
+  }
+.link {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 20px;
+}
+.linkIcon {
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+}
+.sideBar a {
+  color: var(--primaryColor);
+  text-decoration: none;
+}
+.sideBar a:hover {
+  color: white;
+  background-color: var(--primaryColor);
+}
+.sideBar a:focus {
+  color: white;
+  margin-left: 15px;
+  background-color: var(--primaryColor);
+}
+
+/* End Header */
+
   .page {
     flex: 1;
     /* padding: 20px; */
+    width: 85%;
+    background: var(--bgColor);
     
   }
-  
   .header {
+    background: var(--bgColor);
+    display: flex;
     position: fixed;
-    border-bottom: 3px solid rgb(0, 0, 0);
+    justify-items: center;
+    justify-content: flex-end;
     width: 100%;
-    height: 7vh;
-    font-size: 25px;
-    background-color: #fff;
+    left: 13.5%;
+    top: 0;
+    height: 4rem;
+    padding: 0;
+    width: 80%;
   }
-  
+  .navShadow {
+    position: fixed;
+    width: 100%;
+    border: solid 1px var(--shadowColor);
+    top: 3.5rem;
+    left: 0;
+    filter: drop-shadow(0px 4px 20px var(--shadowColor));
+  }
   .content {
     margin-top: 80px;
     
@@ -37,24 +115,4 @@
     padding-left: 20px;
     padding-right: 20px;
     overflow-y: auto; 
-  }
-  .sideBar a {
-    color: aliceblue;
-    text-decoration: none; 
-    font-size: 20px;
-  }
-  
-  
-  .sideBar a:hover {
-    color: whitesmoke;
-    font-size: 30px;
-    font-family: cursive;
-    margin-left: 15px;
-  }
-
-  .sideBar a:focus {
-    color: rgb(22, 220, 255);
-    font-size: 30px;
-    font-family: cursive;
-    margin-left: 15px;
   }

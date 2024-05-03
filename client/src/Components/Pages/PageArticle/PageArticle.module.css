@@ -1,23 +1,64 @@
-
+.article {
+  padding: 1rem;
+}
+.article h2 {
+  color: var(--primaryColor);
+}
+.btn {
+    background: var(--secondaryColor);
+    color: var(--primaryColor);
+    cursor: pointer;
+    border-radius: 25px;
+    border: none;
+    font-size: 20px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    font-weight: bolder;
+    margin-left: 1rem;
+}
+.btn:hover {
+    background: var(--primaryColor);
+    color: white;
+}
 .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-  }
-  
-  .card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 1rem 2rem;
+}
+
+.card {
     background-color: #f5f5f5;
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+}
   
   .card h3 {
     margin-top: 0;
+    color: var(--tertiaryColor);
     margin-bottom: 10px;
   }
-  
+
   .card p {
     margin: 0;
   }
+  .buttonContainer button{
+    border-radius: 25px;
+    font-size: 16px;
+    margin: 1rem;
+    margin-left: 0;
+    margin-bottom: 0;
+    background: var(--primaryColor);
+    border: none;
+    padding: 0.5rem 1rem;
+    color: white;
+    cursor: pointer;
+}
+.buttonContainer .updateBtn:hover {
+    background: var(--updateColor);
+}
+.buttonContainer .deleteBtn:hover {
+  background: var(--deleteColor);
+}
   

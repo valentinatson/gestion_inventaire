@@ -46,7 +46,7 @@ const AddSupply = () => {
         <div>
             <div className={style.formulaire}>
                 <section className={style.title}>
-                    <h2>Supply Register</h2>
+                    <h2>Approvisionner</h2>
                 </section>
                 <div className={style.form}>
                     <form onSubmit={handleSubmit}>
@@ -56,7 +56,7 @@ const AddSupply = () => {
                             value={categorie}
                             onChange={(e) => setCategorie(e.target.value)}
                             >
-                            <option value="" >Sélectionner une catégorie</option>
+                            <option value="">Sélectionner une catégorie: </option>
                                 <option value="Table">Table</option>
                                 <option value="Chaise">Chaise</option>
                                 <option value="Lit">Lit</option>
@@ -68,7 +68,7 @@ const AddSupply = () => {
                             value={nomArticle}
                             onChange={(e) => setNomArticle(e.target.value)}
                             >
-                            <option value="" >Sélectionner le nom de l'article: </option>
+                            <option value="">Sélectionner le nom de l'article: </option>
                                 <option value="Table1">Table rond</option>
                                 <option value="Table1">Table basse</option>
                                 <option value="Chaise1">Chaise large</option>
@@ -84,11 +84,7 @@ const AddSupply = () => {
                             onChange={(e) => setQuantite(e.target.value)}
                             />
                         </div>
-                       
-                        
-                        <div className={style.button}>
-                            <button type="submit" >Submit</button>
-                        </div>
+                        <button className={style.btn} type="submit" >Enrégistrer</button>
                         
                     </form>
                 </div>

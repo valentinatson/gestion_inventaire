@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import style from './PageInventaire.module.css'
 
 const Switch = ({ isOn, handleToggle }) => {
   return (
@@ -60,17 +61,20 @@ const PageInventaire = () => {
   const groupedSalesItems = groupItemsByWeek(salesItems);
 
   return (
-    <div>
+    <div className={style.inventaire}>
       <h2>Approvisionnement et Ventes</h2>
-      <button onClick={toggleView}>
-        {showInventory ? 'Voir les Ventes' : 'Voir l\'Approvisionnement'}
-      </button>
+      <p>
+        Voir
+        <button onClick={toggleView} className={style.btn}>
+          {showInventory ? 'Ventes' : 'Provisions'}
+        </button>
+      </p>
       {showInventory && (
-        <div>
-          <h3>Approvisionnement</h3>
+        <div className={style.history}>
+          <h3 className={style.historyTitle}>Approvisionnement</h3>
           {Object.entries(groupedSupplyItems).map(([weekKey, items]) => (
             <div key={weekKey}>
-              <h4>Semaine du {weekKey.split('_')[0]} au {weekKey.split('_')[1]}</h4>
+              <h4 className={style.historyText}>Semaine du {weekKey.split('_')[0]} au {weekKey.split('_')[1]}</h4>
               <table>
                 <thead>
                   <tr>
@@ -101,10 +105,10 @@ const PageInventaire = () => {
       )}
       {showSales && (
         <div>
-          <h3>Ventes</h3>
+          <h3 className={style.historyTitle}>Ventes</h3>
           {Object.entries(groupedSalesItems).map(([weekKey, items]) => (
             <div key={weekKey}>
-              <h4>Semaine du {weekKey.split('_')[0]} au {weekKey.split('_')[1]}</h4>
+              <h4 className={style.historyText}>Semaine du {weekKey.split('_')[0]} au {weekKey.split('_')[1]}</h4>
               <table>
                 <thead>
                   <tr>

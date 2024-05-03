@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import AddSell from '../AddSell/AddSell';
+import style from './PageSell.module.css'
 
 const PageSell = () => {
   const [showAddForm, setShowAddForm] = useState(false);
@@ -16,9 +17,9 @@ const PageSell = () => {
   ];
 
   return (
-    <div>
+    <div className={style.sellSection}>
       <h2>Liste des ventes</h2>
-      <button onClick={handleAddSell}>{showAddForm ? 'Fermer le formulaire' : 'Ajouter une vente'}</button>
+      <button onClick={handleAddSell} className={style.btn}>{showAddForm ? 'Fermer' : 'Ajouter'}</button>
       {showAddForm && <AddSell />}
       <table>
         <thead>

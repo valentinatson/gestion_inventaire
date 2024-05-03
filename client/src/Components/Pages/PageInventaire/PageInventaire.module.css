@@ -1,3 +1,25 @@
 .content{
     width: 100%;
 }
+.inventaire h2, .historyTitle {
+    color: var(--primaryColor);
+}
+.historyText {
+    color: var(--tertiaryColor);
+}
+.btn {
+    background: var(--secondaryColor);
+    color: var(--primaryColor);
+    cursor: pointer;
+    border-radius: 25px;
+    border: none;
+    font-size: 20px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    font-weight: bolder;
+    margin-left: 1rem;
+}
+.btn:hover {
+    background: var(--primaryColor);
+    color: white;
+}

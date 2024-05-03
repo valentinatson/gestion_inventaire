@@ -43,7 +43,7 @@ const AddSell = () => {
         <div>
             <div className={style.formulaire}>
                 <section className={style.title}>
-                    <h2>Ajouter une vente</h2>
+                    <h2>Enrégistrer une vente</h2>
                 </section>
                 <div className={style.form}>
                     <form onSubmit={handleSubmit}>
@@ -81,15 +81,9 @@ const AddSell = () => {
                             onChange={(e) => setQuantite(e.target.value)}
                             />
                         </div>
-                       
-                        
-                        <div className={style.button}>
-                            <button type="submit" >Submit</button>
-                        </div>
-                        
+                        <button type="submit" className={style.btn}>Submit</button>
                     </form>
                 </div>
-
             </div>
         </div>
     )

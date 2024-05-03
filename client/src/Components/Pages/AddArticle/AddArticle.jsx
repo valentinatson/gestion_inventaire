@@ -46,7 +46,7 @@ const AddArticle = () => {
         <div>
             <div className={style.formulaire}>
                 <section className={style.title}>
-                    <h2>Article Register</h2>
+                    <h2>Ajouter un article</h2>
                 </section>
                 <div className={style.form}>
                     <form onSubmit={handleSubmit}>
@@ -83,11 +83,7 @@ const AddArticle = () => {
                             onChange={(e) => setPrixVente(e.target.value)}
                             />
                         </div>
-                        
-                        <div className={style.button}>
-                            <button type="submit" >Submit</button>
-                        </div>
-                        
+                        <button type="submit" className={style.btn} >Enrégister</button>
                     </form>
                 </div>
 

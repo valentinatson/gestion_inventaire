@@ -1,0 +1,34 @@
+.formulaire {
+    background: var(--secondaryColor);
+    padding: 1rem;
+    box-shadow: 2px 2px 12px var(--shadowColor), -1px -1px 8px var(--shadowColor);
+    width: 90%;
+    margin: auto;
+}
+
+.title h2 {
+    color: var(--primaryColor);
+}
+.btn {
+    background: var(--bgColor);
+    color: var(--primaryColor);
+    cursor: pointer;
+    border-radius: 25px;
+    border: none;
+    font-size: 20px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    font-weight: bolder;
+    margin-left: 1rem;
+}
+.btn:hover {
+    background: var(--primaryColor);
+    color: white;
+}
+select, input {
+    height: 2rem;
+    margin-bottom: 1rem;
+    background-color: var(--bgColor);
+    border: none;
+    width: 100%;
+}
