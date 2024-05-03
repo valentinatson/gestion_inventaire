@@ -63,8 +63,6 @@ const HomeMenu = () => {
                     <p>Justin</p>
                     <img src={User} alt="user" />
                 </header>
-            
-                
                 <div className={style.content}>
                     <Outlet />
                 </div>

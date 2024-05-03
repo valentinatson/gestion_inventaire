@@ -1,6 +1,6 @@
+import axios from 'axios'
 import { useState } from "react"
 import { NavLink } from "react-router-dom"
-/* import axios from 'axios' */
 
 
 import style from "./Login.module.css"
@@ -22,20 +22,26 @@ const Login = () => {
     }
     console.log(infoLogin);
 
-    /* axios
+    axios
         .post("http://localhost:5000/user/login", infoLogin)
         .then((res) => {
                 console.log(res.data);
-                navigate("/login")
+                window.location.href = "/ProtectedRoutes/";
+                window.localStorage.setItem('token', res.data.accessToken)
+                // Après une connexion réussie, stockez le nom d'utilisateur dans localStorage
+                localStorage.setItem('name', name); // Supposons que 'username' soit le nom d'utilisateur connecté
+
+                
+
         })
         .catch((error) => {
                 console.log(error);
-        }); */
-  };
+        });
+};
 
 
     return(
-        <div>
+        <div className={style.body}>
             <div className={style.formulaire}>
                 <section className={style.title}>
                     <h2>Connection</h2>
@@ -71,3 +77,4 @@ const Login = () => {
     )
 }
 export default Login
+

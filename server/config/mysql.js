@@ -1,13 +1,14 @@
-const mysql2 = require("mysql2")
-const dataBase = mysql2.createConnection({
+const mysql= require("mysql2")
+const dataBase= mysql.createConnection({
     user:"root",
     host:"localhost",
     password:"",
     database:"gestion_stock"
 })
 
-dataBase.connect((error) => {
-    if (error) throw error
-    console.log('dataBase connected successfully');
+dataBase.connect((error)=>{
+    if(error) throw error;
+    console.log("database connect successfully");
 })
-module.exports = dataBase
+
+module.exports= dataBase;
